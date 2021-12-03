@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JT_Multi-Shader</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="600" height="600">
+    Please use a browser that supports "canvas"
+    </canvas>
+    <div id = "outer" style = "position: fixed; top:70%";>
+    <div style = "float: left; position: relative; top:15px;">
+      <p>W, S, A, D to move forward/backward and strafe left/right. <br>
+       Arrow keys to tilt and aim camera. Q, E to move up/down.<br>
+      First 3 buttons along top change VBO visibility.<br>
+      Rightmost button toggles between Phong and Blinn-Phong lighting.<br>
+      Adjust light by changing values and pressing "Update" button.</p>
+      
+    </div>
+    <div id = "dB" style = "float: left; padding-left: 20px;">
+    <p>
+      <button type="button" onclick="VBO0toggle()">Ground hide/show</button>
+      <button type="button" onclick="VBO1toggle()">Gouraud hide/show</button>
+      <button type="button" onclick="VBO2toggle()">Phong hide/show</button>
+      <!-- <button type="button" onclick="VBO3toggle()">VBO-3 hide/show</button> -->
+      <button type="button" id = "lighting" onclick="lightingToggle()">Change to BlinnPhong</button>
+    </p>
+	<!-- Next, make an HTML 'input' box element, a text-box 10 chars wide where users
+		can type in text.  Give it an ID name so that our JavaScript program
+		(e.g. ControlMulti.js, loaded near the end of this file) can access this
+    HTML element by name in the 'tick' function.
+  -->
+  World Coordinate Position (x,y,z)
+  <input id='lightPosX' value = 6.0 size=10> 
+  <input id='lightPosY' value = 5.0 size=10> 
+  <input id='lightPosZ' value = 5.0 size=10> 
+    <div id= EditBoxOut></div>
+  Ambient (r,g,b)
+  <input id='lightAmbR' value = 0.4 size=10> 
+  <input id='lightAmbG' value = 0.4 size=10> 
+  <input id='lightAmbB' value = 0.4 size=10> 
+    <div id= EditBoxOut></div>
+    Diffuse (r,g,b)
+    <input id='lightDifR' value = 1.0 size=10> 
+  <input id='lightDifG' value = 1.0 size=10> 
+  <input id='lightDifB' value = 1.0 size=10> 
+    <div id= EditBoxOut></div>
+    Specular (r,g,b)
+    <input id='lightSpecR' value = 1.0 size=10> 
+  <input id='lightSpecG' value = 1.0 size=10> 
+  <input id='lightSpecB' value = 1.0 size=10> 
+    On/Off
+    <input type = "checkbox" id='lightOn' checked> 
+	<!-- Next, make an HTML 'input' box element, a text-box 10 chars wide where users
+		can type in text.  Give it an ID name so that our JavaScript program
+		(e.g. ControlMulti.js, loaded near the end of this file) can access this
+		HTML element by name in the 'tick' function.
+	-->
+		<button type="button" onClick='lightSubmit()'>Update</button><BR> 
+    <div id= Edit2BoxOut></div>
+    </div>
+    </div>
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-quat03.js"></script>
+      <script src="lights-JT.js"></script>
+      <script src="materials_Ayerdi04.js"></script>
+<!-- YOU SHOULD UPGRADE to Brandon Jones' far-faster, 
+      far more complete vector/matrix/quaternion library: (Google it!)
+		<script src="../lib/glmatrix.js"></script>
+--> 
+		<script src="LuoLinda_ChenAlex_ProjC_Lib.js"></script>
+    <script src="LuoLinda_ChenAlex_ProjC.js"></script>
+  </body>
+</html>
